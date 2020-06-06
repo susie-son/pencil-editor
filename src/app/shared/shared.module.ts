@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const components = [NavigationComponent];
 const modules = [
@@ -19,6 +20,7 @@ const modules = [
   MatSidenavModule,
   MatIconModule,
   MatListModule,
+  MatSnackBarModule,
 ];
 
 @NgModule({
