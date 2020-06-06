@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 import { Document } from './doc.model';
 
@@ -30,7 +30,7 @@ export class DatabaseService {
         if (user) {
           return this.db
             .collection<Document>('documents', (ref) =>
-              ref.where('uid', '==', user.uid)
+              ref.where('id', '==', user.uid)
             )
             .valueChanges({ idField: 'id' });
         } else {
