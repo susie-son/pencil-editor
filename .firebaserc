@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pencil-editor": {
+      "hosting": {
+        "pencil-editor": [
+          "pencil-editor"
+        ]
+      }
+    }
+  }
+}

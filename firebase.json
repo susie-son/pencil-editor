@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "pencil-editor",
+      "public": "dist/pencil-editor",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
