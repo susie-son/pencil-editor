@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login-page',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent {
-  constructor() {}
+  constructor(public afAuth: AngularFireAuth) {}
 }
