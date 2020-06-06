@@ -9,6 +9,12 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
+  {
+    path: 'editor',
+    loadChildren: () =>
+      import('./editor/editor.module').then((m) => m.EditorModule),
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
