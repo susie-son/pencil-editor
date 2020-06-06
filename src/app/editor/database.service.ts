@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { switchMap } from 'rxjs/operators';
 
 import { Document } from './doc.model';
+import { User } from 'firebase';
 
 @Injectable({
   providedIn: 'root',
@@ -11,17 +12,19 @@ import { Document } from './doc.model';
 export class DatabaseService {
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {}
 
-  async createDoc(data: Document) {
-    const user = await this.afAuth.currentUser;
-    return this.db.collection('documents').add({
-      ...data,
-      uid: user.uid,
-      text: '',
+  createDoc(user: User) {
+    return this.db.collection<Document>('documents').add({
+      id: user.uid,
+      text:
+        '<div #editable><p>Start editing this to see some magic happen :)</p></div>',
     });
   }
 
   updateText(docId: string, text: string) {
-    return this.db.collection('documents').doc(docId).update({ text });
+    return this.db
+      .collection<Document>('documents')
+      .doc(docId)
+      .update({ text });
   }
 
   getUserDocs() {

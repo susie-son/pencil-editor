@@ -1,3 +1,8 @@
 <div class="docs">
   <app-doc *ngFor="let doc of docs" [doc]="doc"></app-doc>
+  <div class="doc-button">
+    <button mat-raised-button color="accent" (click)="newDocument()">
+      New Document
+    </button>
+  </div>
 </div>
