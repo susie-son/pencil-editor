@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { DatabaseService } from '../database.service';
+
+import MediumEditor from 'medium-editor';
 
 @Component({
   selector: 'app-doc',
@@ -8,8 +10,16 @@ import { DatabaseService } from '../database.service';
 })
 export class DocComponent {
   @Input() doc;
+  @ViewChild('editable') editable;
+  editor: MediumEditor;
 
   constructor(private dbService: DatabaseService) {}
 
-  ngOnInit(): void {}
+  ngAfterViewInit() {
+    const element = this.editable.nativeElement;
+    this.editor = new MediumEditor(element);
+    this.editor.subscribe('editableInput', (_event, editable) => {
+      this.dbService.updateText(this.doc.id, editable.innerHTML);
+    });
+  }
 }

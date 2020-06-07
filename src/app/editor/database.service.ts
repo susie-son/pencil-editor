@@ -15,8 +15,7 @@ export class DatabaseService {
   createDoc(user: User) {
     return this.db.collection<Document>('documents').add({
       id: user.uid,
-      text:
-        '<div #editable><p>Start editing this to see some magic happen :)</p></div>',
+      text: '<p>Start editing this to see some magic happen :)</p>',
     });
   }
 
