@@ -1,5 +1,5 @@
 <div class="docs">
-  <app-doc *ngFor="let doc of docs" [doc]="doc"></app-doc>
+  <app-doc *ngIf="doc" [doc]="doc"></app-doc>
   <div class="doc-button">
     <button
       mat-raised-button

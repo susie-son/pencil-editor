@@ -10,7 +10,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./doc-list.component.scss'],
 })
 export class DocListComponent implements OnInit, OnDestroy {
-  docs: Document[];
+  doc: Document;
   sub: Subscription;
 
   constructor(
@@ -21,7 +21,7 @@ export class DocListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.dbService
       .getUserDocs()
-      .subscribe((docs) => (this.docs = docs));
+      .subscribe((docs) => (this.doc = docs[0]));
   }
 
   ngOnDestroy() {
