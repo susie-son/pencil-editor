@@ -16,14 +16,19 @@ export class DatabaseService {
     return this.db.collection<Document>('documents').add({
       id: user.uid,
       text: '<p>Start editing this to see some magic happen :)</p>',
+      time: new Date(),
     });
+  }
+
+  deleteDoc(docId: string) {
+    return this.db.collection<Document>('documents').doc(docId).delete();
   }
 
   updateText(docId: string, text: string) {
     return this.db
       .collection<Document>('documents')
       .doc(docId)
-      .update({ text });
+      .update({ text: text, time: new Date() });
   }
 
   getUserDocs() {
@@ -32,7 +37,7 @@ export class DatabaseService {
         if (user) {
           return this.db
             .collection<Document>('documents', (ref) =>
-              ref.where('id', '==', user.uid)
+              ref.where('id', '==', user.uid).orderBy('time', 'desc')
             )
             .valueChanges({ idField: 'id' });
         } else {

@@ -32,4 +32,9 @@ export class DocListComponent implements OnInit, OnDestroy {
     const user = await this.afAuth.currentUser;
     this.dbService.createDoc(user);
   }
+
+  async deleteDocument() {
+    const user = await this.afAuth.currentUser;
+    this.dbService.deleteDoc(this.doc.id);
+  }
 }

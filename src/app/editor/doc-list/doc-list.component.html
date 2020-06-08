@@ -1,6 +1,6 @@
 <div class="docs">
   <app-doc *ngIf="doc" [doc]="doc"></app-doc>
-  <div class="doc-button">
+  <div *ngIf="!doc" class="doc-button">
     <button
       mat-raised-button
       color="accent"
@@ -8,6 +8,16 @@
       class="doc-button"
     >
       New Document
+    </button>
+  </div>
+  <div *ngIf="doc" class="doc-button">
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="deleteDocument()"
+      class="doc-button"
+    >
+      Delete Document
     </button>
   </div>
 </div>
