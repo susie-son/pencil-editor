@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Document } from '../doc.model';
-import { DatabaseService } from '../database.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Subscription } from 'rxjs';
+import { DatabaseService } from '../database.service';
+import { Document } from '../doc.model';
 
 @Component({
   selector: 'app-doc-list',

@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { switchMap } from 'rxjs/operators';
-
-import { Document } from './doc.model';
 import { User } from 'firebase';
+import { switchMap } from 'rxjs/operators';
+import { Document } from './doc.model';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +27,7 @@ export class DatabaseService {
     return this.db
       .collection<Document>('documents')
       .doc(docId)
-      .update({ text: text, time: new Date() });
+      .update({ text, time: new Date() });
   }
 
   getUserDocs() {

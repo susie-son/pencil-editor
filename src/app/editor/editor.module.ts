@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { EditorRoutingModule } from './editor-routing.module';
+import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { DocListComponent } from './doc-list/doc-list.component';
 import { DocComponent } from './doc/doc.component';
+import { EditorRoutingModule } from './editor-routing.module';
 
 @NgModule({
   declarations: [DocListComponent, DocComponent],

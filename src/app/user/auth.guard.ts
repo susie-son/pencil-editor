@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import {
-  CanActivate,
   ActivatedRouteSnapshot,
+  CanActivate,
   RouterStateSnapshot,
 } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { SnackbarService } from '../shared/snackbar.service';
 
 @Injectable({
