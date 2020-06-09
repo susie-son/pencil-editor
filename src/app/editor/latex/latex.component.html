@@ -1,0 +1,2 @@
+<mat-slide-toggle [(ngModel)]="checked">Preview with LaTeX</mat-slide-toggle>
+<ng-katex-html *ngIf="checked" [html]="equation"></ng-katex-html>
